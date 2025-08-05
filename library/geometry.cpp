@@ -29,9 +29,14 @@ namespace Geometry
     }
 
     template<typename T>
-    T ccw(const complex<T>& a, const complex<T>& b, const complex<T>& pos)
+    int ccw(const complex<T> &a, const complex<T> &b, const complex<T> &pos)
     {
-        T ret = cross_product(pos-a, pos-b);
+        T ret = cross_product(pos - a, pos - b);
+        if (ret > 0)
+            return 1;
+        if (ret == 0)
+            return 0;
+        return -1;
         return ret;
     }
 
